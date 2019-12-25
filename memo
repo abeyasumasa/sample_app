@@ -12,3 +12,9 @@ ps aux |grep spring
 
 #プロセスの削除
 kill - 
+
+#mapメソッド
+配列の要素分同じ処理を繰り返すときに使用する
+https://www.sejuku.net/blog/55745
+
+
