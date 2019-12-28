@@ -17,4 +17,15 @@ kill -
 配列の要素分同じ処理を繰り返すときに使用する
 https://www.sejuku.net/blog/55745
 
+img_tagヘルパー
+alt属性には画像の説明文を記載します。
+https://creive.me/archives/13212/
 
+静的ページなどを作成する場合、ヘッダー、フッターなどはlayoutフォルダに保管しておき、
+必要な場合、applicationファイルにて呼び出す方がコードが綺麗
+
+
+#デフォルトのルーティングを変更する方法（名前つきルートを定義すると可能になる）
+ GETリクエストが/helpに送信されたときにStaticPagesコントローラーのhelpアクションに飛ばしてくれる
+ また、as:オプションを使うとルーティングに名前を設定できます。(helf_path,helf_urlが生成される)
+get '/help', to: 'static_pages#help' , as: :helf
