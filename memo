@@ -29,3 +29,24 @@ https://creive.me/archives/13212/
  GETリクエストが/helpに送信されたときにStaticPagesコントローラーのhelpアクションに飛ばしてくれる
  また、as:オプションを使うとルーティングに名前を設定できます。(helf_path,helf_urlが生成される)
 get '/help', to: 'static_pages#help' , as: :helf
+
+#技術的な補足
+ params[:id]は文字列型の"1"ですが、findメソッドでは自動的に整列型に変換される
+  @user = User.find(params[:id])
+
+ #デバック(byebug)
+  アプリケーションのdebuggerが呼び出された瞬間の状態を確認できる(ctrl + D で抜ける)
+  debugger
+
+#パーシャルについて
+　複数のビューで使われるパーシャルは専用のディレクトリ「shared」に置かれる。
+
+#フォームでAjaxを使う際の注意点
+ Ajaxを行うときにform_forやrorm_tagはオプションでremote: trueで対応していたが、
+ form_withではデフォルトでremote: trueになっている
+ formでAjaxを使用しない時はform_withのオプションでlocal: trueを指定するとvalidationエラーをViewに表示することが可能。
+
+#content_tagの使い方
+ railsアプリでHTMLコードを生成する方法です。(1番目の引数:要素名,2番目の引数:要素のコンテンツ,3番目の引数クラス名)
+ content_tag(:div,"content", class:"")
+ #=> "<div class="">content</div>"
