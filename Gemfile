@@ -39,3 +39,4 @@ gem "pry-rails"
 gem "pry-byebug"
 gem 'bootstrap-sass', '3.3.7'
 gem 'rails-controller-testing'
+gem 'jquery-rails'
