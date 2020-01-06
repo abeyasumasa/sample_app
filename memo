@@ -50,3 +50,34 @@ get '/help', to: 'static_pages#help' , as: :helf
  railsアプリでHTMLコードを生成する方法です。(1番目の引数:要素名,2番目の引数:要素のコンテンツ,3番目の引数クラス名)
  content_tag(:div,"content", class:"")
  #=> "<div class="">content</div>"
+
+ 9章はもう一度やる
+
+ #Railsはどうやって新規ユーザー用のpostリクエストとユーザー編集用のpatchリクエストを区別しているのか
+  form_withを使ってフォームを構成すると、@user.new_record?がtrueのときにはPOSTを、falseのときはPATCHを使います。
+
+#provideメソッド
+ Viewでprovideヘルパーを利用することで、レイアウト側に値を引き渡すことができます。
+ レイアウト側からは、yieldメソッドを利用することで呼び出せる。
+ (view/home.html/erb)
+ <% provide :title, 'タイトルの例' %>
+ (layout/application.html.erb)
+ <title><%= yield(:title) || 'Rails入門' %></title>
+
+#ユーザー編集時にパスワードの変更が必要ない場合
+ パスワードのバリデーションに対して、空だった時の例外処理を加えれば良い。
+ allow_nil: trueというオプションをvalidatesに追加すれば良い。
+ また、新規ユーザー登録時にか空のパスワードが有効になってしまうと心配しているが、
+ has_secure_passwordでは追加したバリデーションとは別にオブジェクト生成時に存在性を検証するようになっているため、
+ 空のパスワードが新規ユーザー登録時に有効になることはありません。
+
+#認証と認可の違い
+ 認証…サイトのユーザーを識別することで
+ 認可…そのユーザーが実行可能な操作を管理すること
+
+#beforeフィルター
+ before_actionメソッドを使って何らかの処理が実行される直前に特定のメソッドを実行する仕組み
+
+#Fakerメソッド
+　サンプルユーザーを大量に生成することができる
+
