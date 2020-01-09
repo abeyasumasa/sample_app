@@ -37,7 +37,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "pry-rails"
 gem "pry-byebug"
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 gem 'rails-controller-testing'
 gem 'jquery-rails'
 gem 'faker'
